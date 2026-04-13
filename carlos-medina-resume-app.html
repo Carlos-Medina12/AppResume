@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Carlos R. Medina — MBA Candidate, Bauer College of Business. Operations leader, USAF veteran, first-generation college graduate.">
+<title>Carlos R. Medina</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:         #f5f3ee;
+  --surface:    #ffffff;
+  --surface2:   #eeecea;
+  --surface3:   #e6e3de;
+  --text:       #0e0c09;
+  --text2:      #504e49;
+  --text3:      #9b9893;
+  --border:     rgba(14,12,9,0.08);
+  --border2:    rgba(14,12,9,0.14);
+  --navy:       #0c1d38;
+  --blue:       #185FA5;
+  --blue-bg:    #E6F1FB;
+  --blue-dk:    #0C447C;
+  --teal:       #0F6E56;
+  --teal-bg:    #E1F5EE;
+  --teal-dk:    #085041;
+  --amber-bg:   #FAEEDA;
+  --amber-dk:   #633806;
+  --purple-bg:  #EEEDFE;
+  --purple-dk:  #3C3489;
+  --coral-bg:   #FAECE7;
+  --coral-dk:   #7A2E12;
+  --r-lg:       14px;
+  --r-xl:       20px;
+  --r-2xl:      26px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Topbar ─── */
+.topbar {
+  position: sticky; top: 0; z-index: 200;
+  height: 50px;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 32px;
+  background: rgba(245,243,238,0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 0.5px solid var(--border2);
+}
+.tb-left { display: flex; align-items: center; gap: 10px; }
+.tb-dot {
+  width: 28px; height: 28px; border-radius: 7px;
+  background: var(--navy);
+  display: flex; align-items: center; justify-content: center;
+}
+.tb-name { font-size: 13px; font-weight: 500; color: var(--text); letter-spacing: -0.01em; }
+.tb-nav { display: flex; gap: 24px; }
+.tb-nav a {
+  font-size: 12px; color: var(--text3);
+  text-decoration: none; letter-spacing: 0.01em;
+  transition: color 0.12s;
+}
+.tb-nav a:hover { color: var(--text); }
+
+/* ─── Page ─── */
+.page { max-width: 760px; margin: 0 auto; padding: 56px 28px 96px; }
+
+/* ─── Hero ─── */
+.hero {
+  display: flex; gap: 24px; align-items: flex-start;
+  margin-bottom: 32px;
+  opacity: 0; transform: translateY(16px);
+  animation: rise 0.5s cubic-bezier(.22,.68,0,1.2) 0.05s forwards;
+}
+
+/* CRM icon */
+.app-icon {
+  width: 90px; height: 90px; border-radius: 22px;
+  background: var(--navy);
+  flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  border: 0.5px solid rgba(255,255,255,0.06);
+}
+
+.hero-info { flex: 1; padding-top: 2px; }
+
+.hero-info h1 {
+  font-family: 'Lora', serif;
+  font-size: 36px; font-weight: 400;
+  line-height: 1.08; letter-spacing: -0.02em;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+
+.hero-sub {
+  font-size: 13px; font-weight: 300; color: var(--text2);
+  line-height: 1.65; margin-bottom: 16px;
+}
+.hero-sub a { color: var(--blue); text-decoration: none; border-bottom: 0.5px solid transparent; transition: border-color 0.15s; }
+.hero-sub a:hover { border-color: var(--blue); }
+
+.badges { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 18px; }
+.badge {
+  font-size: 10.5px; font-weight: 500;
+  padding: 3.5px 10px; border-radius: 20px;
+  letter-spacing: 0.025em;
+}
+.b-blue   { background: var(--blue-bg);   color: var(--blue-dk); }
+.b-teal   { background: var(--teal-bg);   color: var(--teal-dk); }
+.b-amber  { background: var(--amber-bg);  color: var(--amber-dk); }
+.b-purple { background: var(--purple-bg); color: var(--purple-dk); }
+.b-coral  { background: var(--coral-bg);  color: var(--coral-dk); }
+
+.ctas { display: flex; gap: 8px; flex-wrap: wrap; }
+.btn-p {
+  display: inline-flex; align-items: center; gap: 5px;
+  background: var(--navy); color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-size: 12.5px; font-weight: 500;
+  padding: 8px 18px; border-radius: 9px; border: none;
+  text-decoration: none; cursor: pointer;
+  transition: opacity 0.15s;
+  letter-spacing: -0.005em;
+}
+.btn-p:hover { opacity: 0.82; }
+.btn-s {
+  display: inline-flex; align-items: center; gap: 5px;
+  background: var(--surface); color: var(--text);
+  font-family: 'Inter', sans-serif;
+  font-size: 12.5px; font-weight: 400;
+  padding: 8px 16px; border-radius: 9px;
+  border: 0.5px solid var(--border2);
+  text-decoration: none; cursor: pointer;
+  transition: background 0.15s;
+  letter-spacing: -0.005em;
+}
+.btn-s:hover { background: var(--surface2); }
+
+/* ─── Stats ─── */
+.stats {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  background: var(--border); gap: 0.5px;
+  border: 0.5px solid var(--border2); border-radius: var(--r-xl);
+  overflow: hidden; margin-bottom: 48px;
+  opacity: 0; transform: translateY(12px);
+  animation: rise 0.5s cubic-bezier(.22,.68,0,1.2) 0.12s forwards;
+}
+.stat {
+  background: var(--surface);
+  padding: 20px 10px; text-align: center;
+}
+.sv { font-size: 20px; font-weight: 500; color: var(--text); display: block; letter-spacing: -0.02em; }
+.sl { font-size: 10px; font-weight: 400; color: var(--text3); display: block; margin-top: 3px; text-transform: uppercase; letter-spacing: 0.07em; }
+
+/* ─── Section ─── */
+.sec-label {
+  font-size: 10.5px; font-weight: 500; color: var(--text3);
+  text-transform: uppercase; letter-spacing: 0.09em;
+  margin-bottom: 16px;
+}
+.rule { border: none; border-top: 0.5px solid var(--border); margin: 44px 0; }
+
+/* ─── MBA Card ─── */
+.mba-wrap {
+  opacity: 0; transform: translateY(12px);
+  animation: rise 0.5s cubic-bezier(.22,.68,0,1.2) 0.18s forwards;
+}
+.mba-card {
+  background: var(--surface);
+  border: 0.5px solid var(--border2);
+  border-radius: var(--r-2xl);
+  overflow: hidden;
+}
+.mba-top {
+  padding: 32px 32px 28px;
+  border-bottom: 0.5px solid var(--border);
+}
+.mba-school {
+  font-size: 10.5px; font-weight: 500;
+  color: var(--blue); letter-spacing: 0.07em;
+  text-transform: uppercase; margin-bottom: 14px;
+}
+.mba-quote {
+  font-family: 'Lora', serif;
+  font-style: italic;
+  font-size: 22px; font-weight: 400;
+  color: var(--text); line-height: 1.55;
+  letter-spacing: -0.01em;
+}
+.mba-bottom { padding: 24px 32px 28px; }
+.mba-pillars {
+  display: grid; grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: 10px; margin-bottom: 24px;
+}
+.pillar {
+  background: var(--bg); border-radius: var(--r-lg);
+  padding: 16px 14px; text-align: center;
+}
+.p-icon {
+  width: 30px; height: 30px; border-radius: 50%;
+  margin: 0 auto 9px;
+  display: flex; align-items: center; justify-content: center;
+}
+.p-label { font-size: 11.5px; font-weight: 500; color: var(--text); margin-bottom: 4px; letter-spacing: -0.01em; }
+.p-sub { font-size: 11px; font-weight: 300; color: var(--text2); line-height: 1.45; }
+.mba-text {
+  font-size: 13.5px; font-weight: 300;
+  color: var(--text2); line-height: 1.9;
+}
+.mba-text p + p { margin-top: 14px; }
+.mba-text strong { font-weight: 500; color: var(--text); }
+
+/* ─── Feature cards ─── */
+.feat-grid {
+  display: grid; grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 10px; margin-bottom: 12px;
+}
+.fc {
+  background: var(--surface);
+  border: 0.5px solid var(--border);
+  border-radius: var(--r-xl); padding: 18px 20px;
+  cursor: pointer;
+  transition: border-color 0.15s, transform 0.12s, box-shadow 0.15s;
+  opacity: 0; transform: translateY(10px);
+  animation: rise 0.45s cubic-bezier(.22,.68,0,1.2) forwards;
+}
+.fc:nth-child(1) { animation-delay: 0.22s; }
+.fc:nth-child(2) { animation-delay: 0.27s; }
+.fc:nth-child(3) { animation-delay: 0.32s; }
+.fc:nth-child(4) { animation-delay: 0.37s; }
+.fc:hover { border-color: var(--border2); transform: translateY(-2px); }
+.fc.open { border-color: var(--blue); border-width: 1.5px; transform: translateY(0); }
+.fc-icon {
+  width: 34px; height: 34px; border-radius: 9px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 11px;
+}
+.fc-title { font-size: 13px; font-weight: 500; color: var(--text); margin-bottom: 3px; letter-spacing: -0.01em; }
+.fc-sub { font-size: 11.5px; font-weight: 300; color: var(--text2); line-height: 1.45; }
+
+/* ─── Detail panel ─── */
+.panel {
+  display: none;
+  background: var(--surface2);
+  border: 0.5px solid var(--border);
+  border-radius: var(--r-xl); padding: 22px 24px;
+  margin-bottom: 12px;
+}
+.panel.open { display: block; animation: panelIn 0.18s ease; }
+.panel-title {
+  font-family: 'Lora', serif;
+  font-size: 18px; font-weight: 400;
+  color: var(--text); margin-bottom: 16px;
+  letter-spacing: -0.01em;
+}
+
+/* Experience items */
+.ei { padding: 13px 0; border-bottom: 0.5px solid var(--border); }
+.ei:last-child { border-bottom: none; padding-bottom: 0; }
+.ei-head {
+  display: flex; justify-content: space-between;
+  align-items: baseline; gap: 10px;
+  flex-wrap: wrap; margin-bottom: 2px;
+}
+.ei-role { font-size: 13px; font-weight: 500; color: var(--text); letter-spacing: -0.01em; }
+.ei-dates { font-size: 11px; font-weight: 300; color: var(--text3); flex-shrink: 0; }
+.ei-co { font-size: 12px; font-weight: 300; color: var(--text2); margin-bottom: 7px; }
+.ei-co em { font-style: normal; font-weight: 400; color: var(--text); }
+.bullets { list-style: none; }
+.bullets li {
+  font-size: 12.5px; font-weight: 300; color: var(--text2);
+  line-height: 1.7; padding-left: 14px;
+  position: relative; margin-bottom: 3px;
+}
+.bullets li::before { content: "–"; position: absolute; left: 0; color: var(--text3); }
+
+/* Skills */
+.skill-cloud { display: flex; flex-wrap: wrap; gap: 7px; }
+.skill {
+  font-size: 12px; font-weight: 300;
+  padding: 5px 13px; border-radius: 20px;
+  border: 0.5px solid var(--border2);
+  color: var(--text2); background: var(--surface);
+}
+
+/* Version history */
+.vrow {
+  display: flex; gap: 14px; align-items: baseline;
+  padding: 10px 0; border-bottom: 0.5px solid var(--border);
+}
+.vrow:last-child { border-bottom: none; }
+.vn { font-size: 12px; font-weight: 500; color: var(--text); min-width: 92px; flex-shrink: 0; letter-spacing: -0.01em; }
+.vt { font-size: 12px; font-weight: 300; color: var(--text2); flex: 1; line-height: 1.5; }
+.vd { font-size: 11px; color: var(--text3); min-width: 44px; text-align: right; flex-shrink: 0; }
+
+/* ─── History section standalone ─── */
+.history-box {
+  background: var(--surface);
+  border: 0.5px solid var(--border2);
+  border-radius: var(--r-xl); padding: 18px 22px;
+}
+
+/* ─── Contact ─── */
+.contact {
+  text-align: center; padding: 4px 0;
+}
+.contact-links {
+  display: flex; justify-content: center;
+  gap: 10px; flex-wrap: wrap; margin-bottom: 16px;
+}
+.contact-sub { font-size: 12.5px; font-weight: 300; color: var(--text3); }
+
+/* ─── Footer ─── */
+footer {
+  margin-top: 52px; text-align: center;
+  padding-bottom: 24px;
+}
+.footer-name {
+  font-family: 'Lora', serif;
+  font-size: 13px; font-weight: 400;
+  color: var(--text2); margin-bottom: 6px;
+  letter-spacing: -0.01em;
+}
+.footer-tag {
+  font-size: 11.5px; font-weight: 300; color: var(--text3);
+  line-height: 1.6;
+}
+.footer-div {
+  width: 32px; height: 0.5px;
+  background: var(--border2); margin: 14px auto;
+}
+
+/* ─── Animations ─── */
+@keyframes rise {
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes panelIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 580px) {
+  .hero { flex-direction: column; gap: 18px; }
+  .stats { grid-template-columns: repeat(2, 1fr); }
+  .mba-pillars { grid-template-columns: 1fr; }
+  .feat-grid { grid-template-columns: 1fr; }
+  .tb-nav { display: none; }
+  .page { padding: 36px 18px 72px; }
+  .hero-info h1 { font-size: 30px; }
+  .mba-top { padding: 24px 20px 20px; }
+  .mba-bottom { padding: 18px 20px 22px; }
+  .mba-quote { font-size: 19px; }
+}
+
+/* ─── Print ─── */
+@media print {
+  .topbar { display: none; }
+  .page { padding: 24px; }
+  .fc { break-inside: avoid; }
+  .panel { display: block !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- ─── Topbar ─── -->
+<nav class="topbar">
+  <div class="tb-left">
+    <div class="tb-dot">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <line x1="8" y1="3" x2="4" y2="9"  stroke="#378ADD" stroke-width="1" stroke-opacity=".7"/>
+        <line x1="8" y1="3" x2="12" y2="9" stroke="#5DCAA5" stroke-width="1" stroke-opacity=".7"/>
+        <line x1="4" y1="9" x2="8" y2="13" stroke="#378ADD" stroke-width="1" stroke-opacity=".5"/>
+        <line x1="12" y1="9" x2="8" y2="13" stroke="#5DCAA5" stroke-width="1" stroke-opacity=".5"/>
+        <circle cx="8"  cy="3"  r="2" fill="#378ADD"/>
+        <circle cx="4"  cy="9"  r="2" fill="#5DCAA5"/>
+        <circle cx="12" cy="9"  r="2" fill="#AFA9EC"/>
+        <circle cx="8"  cy="13" r="2" fill="#85B7EB" fill-opacity=".7"/>
+      </svg>
+    </div>
+    <span class="tb-name">Carlos R. Medina</span>
+  </div>
+  <nav class="tb-nav">
+    <a href="#mba">MBA case</a>
+    <a href="#experience">Experience</a>
+    <a href="#timeline">Timeline</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</nav>
+
+<main class="page">
+
+  <!-- ─── Hero ─── -->
+  <div class="hero">
+
+    <!-- CRM pipeline icon -->
+    <div class="app-icon">
+      <svg width="54" height="54" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- connector lines -->
+        <line x1="27" y1="11" x2="13" y2="29" stroke="#378ADD" stroke-width="1.1" stroke-opacity=".45"/>
+        <line x1="27" y1="11" x2="41" y2="29" stroke="#5DCAA5" stroke-width="1.1" stroke-opacity=".45"/>
+        <line x1="13" y1="29" x2="27" y2="45" stroke="#378ADD" stroke-width="1.1" stroke-opacity=".3"/>
+        <line x1="41" y1="29" x2="27" y2="45" stroke="#5DCAA5" stroke-width="1.1" stroke-opacity=".3"/>
+        <line x1="13" y1="29" x2="41" y2="29" stroke="#AFA9EC" stroke-width="1"   stroke-opacity=".28"/>
+        <!-- halo rings -->
+        <circle cx="27" cy="11" r="8.5" stroke="#378ADD" stroke-width=".6" stroke-opacity=".2"/>
+        <circle cx="27" cy="45" r="8.5" stroke="#85B7EB" stroke-width=".6" stroke-opacity=".15" stroke-dasharray="2.5 2"/>
+        <!-- node fills -->
+        <circle cx="27" cy="11" r="5.5" fill="#185FA5" fill-opacity=".18" stroke="#378ADD" stroke-width="1.4"/>
+        <circle cx="13" cy="29" r="5.5" fill="#0F6E56" fill-opacity=".15" stroke="#5DCAA5" stroke-width="1.4"/>
+        <circle cx="41" cy="29" r="5.5" fill="#534AB7" fill-opacity=".13" stroke="#AFA9EC" stroke-width="1.4"/>
+        <circle cx="27" cy="45" r="5.5" fill="#185FA5" fill-opacity=".09" stroke="#85B7EB" stroke-width="1.4" stroke-dasharray="2.2 1.8"/>
+        <!-- node dots -->
+        <circle cx="27" cy="11" r="2.2" fill="#378ADD"/>
+        <circle cx="13" cy="29" r="2.2" fill="#5DCAA5"/>
+        <circle cx="41" cy="29" r="2.2" fill="#AFA9EC"/>
+        <circle cx="27" cy="45" r="2.2" fill="#85B7EB" fill-opacity=".65"/>
+      </svg>
+    </div>
+
+    <div class="hero-info">
+      <h1>Carlos R. Medina</h1>
+      <p class="hero-sub">
+        Houston, TX &nbsp;&middot;&nbsp; (979) 595-6365 &nbsp;&middot;&nbsp;
+        <a href="mailto:crmedina@uh.edu">crmedina@uh.edu</a>
+        &nbsp;&middot;&nbsp;
+        <a href="https://www.linkedin.com/in/carlos-medina-56a33b61" target="_blank" rel="noopener">LinkedIn</a>
+      </p>
+      <div class="badges">
+        <span class="badge b-blue">Operations</span>
+        <span class="badge b-teal">Data analytics</span>
+        <span class="badge b-amber">Supply chain</span>
+        <span class="badge b-purple">Military veteran</span>
+        <span class="badge b-coral">MBA candidate</span>
+      </div>
+      <div class="ctas">
+        <a href="mailto:crmedina@uh.edu" class="btn-p">Get in touch</a>
+        <a href="https://www.linkedin.com/in/carlos-medina-56a33b61" target="_blank" rel="noopener" class="btn-s">LinkedIn &rarr;</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── Stats ─── -->
+  <div class="stats">
+    <div class="stat"><span class="sv">10+</span><span class="sl">Years ops</span></div>
+    <div class="stat"><span class="sv">$1.5M</span><span class="sl">Inv. managed</span></div>
+    <div class="stat"><span class="sv">90%</span><span class="sl">Fill rate</span></div>
+    <div class="stat"><span class="sv">USAF</span><span class="sl">Veteran</span></div>
+  </div>
+
+  <hr class="rule">
+
+  <!-- ─── MBA ─── -->
+  <div id="mba" class="mba-wrap">
+    <p class="sec-label">The MBA case</p>
+    <div class="mba-card">
+      <div class="mba-top">
+        <p class="mba-school">University of Houston &nbsp;&middot;&nbsp; C. T. Bauer College of Business &nbsp;&middot;&nbsp; MBA &rsquo;26</p>
+        <p class="mba-quote">&ldquo;Nobody in my family had done this before. I figured that out early &mdash; and it made me build everything from scratch.&rdquo;</p>
+      </div>
+      <div class="mba-bottom">
+        <div class="mba-pillars">
+          <div class="pillar">
+            <div class="p-icon" style="background:var(--blue-bg)">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1.5L8.8 5.6H13.2L9.7 8.2L11.1 12.3L7 9.7L2.9 12.3L4.3 8.2L.8 5.6H5.2L7 1.5Z" stroke="#185FA5" stroke-width="1.15" stroke-linejoin="round"/></svg>
+            </div>
+            <p class="p-label">First-gen student</p>
+            <p class="p-sub">No roadmap. Built one anyway.</p>
+          </div>
+          <div class="pillar">
+            <div class="p-icon" style="background:var(--teal-bg)">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 10.5L5 7.5L7 9.5L9.5 5.5L12 8" stroke="#0F6E56" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <p class="p-label">Compounding growth</p>
+            <p class="p-sub">Each role built on the last.</p>
+          </div>
+          <div class="pillar">
+            <div class="p-icon" style="background:var(--purple-bg)">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="5" stroke="#534AB7" stroke-width="1.2"/><path d="M7 4.5V7l1.5 1.5" stroke="#534AB7" stroke-width="1.1" stroke-linecap="round"/></svg>
+            </div>
+            <p class="p-label">Mission-driven</p>
+            <p class="p-sub">Not just climbing &mdash; building.</p>
+          </div>
+        </div>
+        <div class="mba-text">
+          <p>Growing up as a first-generation college student, there was no alumni network to tap, no parent who&rsquo;d navigated a university application, no blueprint. What Carlos had instead was an instinct to figure it out &mdash; which led to the <strong>Air Force at 19</strong>, a geology degree at Texas A&amp;M, and a decade of operations work managing millions in inventory, reading data, and training teams without a formal management title.</p>
+          <p>Now enrolled at the <strong>Bauer College of Business</strong> &mdash; studying Data Analytics, Corporate Strategy, and Financial Management &mdash; the MBA is the tool to translate that operational foundation into leadership at scale. And to open doors for the next first-generation kid watching from the outside.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <!-- ─── Feature cards ─── -->
+  <div id="experience">
+    <p class="sec-label">Explore the details</p>
+    <div class="feat-grid">
+
+      <div class="fc" onclick="toggle(this,'exp')">
+        <div class="fc-icon" style="background:var(--blue-bg)">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <rect x="2" y="4" width="12" height="9" rx="1.5" stroke="#185FA5" stroke-width="1.2"/>
+            <path d="M5 4V3a1 1 0 011-1h4a1 1 0 011 1v1" stroke="#185FA5" stroke-width="1.2"/>
+          </svg>
+        </div>
+        <p class="fc-title">Work history</p>
+        <p class="fc-sub">Energy, tech &amp; ops leadership</p>
+      </div>
+
+      <div class="fc" onclick="toggle(this,'edu')">
+        <div class="fc-icon" style="background:var(--purple-bg)">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M8 2L14 5.5V7L8 10.5L2 7V5.5L8 2Z" stroke="#534AB7" stroke-width="1.2" stroke-linejoin="round"/>
+            <path d="M4 8.5V11.5L8 13.5L12 11.5V8.5" stroke="#534AB7" stroke-width="1.2" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <p class="fc-title">Education</p>
+        <p class="fc-sub">Bauer MBA &middot; Texas A&amp;M &middot; USAF</p>
+      </div>
+
+      <div class="fc" onclick="toggle(this,'skills')">
+        <div class="fc-icon" style="background:var(--teal-bg)">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <circle cx="8" cy="8" r="5.5" stroke="#0F6E56" stroke-width="1.2"/>
+            <path d="M6 8l1.5 1.5L10 6" stroke="#0F6E56" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <p class="fc-title">Skills &amp; tools</p>
+        <p class="fc-sub">Power BI, DAX, Excel &amp; more</p>
+      </div>
+
+      <div class="fc" onclick="toggle(this,'ver')">
+        <div class="fc-icon" style="background:var(--amber-bg)">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <circle cx="8"   cy="3.5" r="1.5" stroke="#854F0B" stroke-width="1.1"/>
+            <circle cx="8"   cy="12.5" r="1.5" stroke="#854F0B" stroke-width="1.1"/>
+            <path d="M8 5v6" stroke="#854F0B" stroke-width="1.1" stroke-linecap="round"/>
+            <circle cx="3.5" cy="9" r="1.5" stroke="#854F0B" stroke-width="1.1"/>
+            <path d="M7 11.5l-3-2" stroke="#854F0B" stroke-width="1.1" stroke-linecap="round"/>
+            <circle cx="12.5" cy="9" r="1.5" stroke="#854F0B" stroke-width="1.1"/>
+            <path d="M9 11.5l3-2" stroke="#854F0B" stroke-width="1.1" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <p class="fc-title">Version history</p>
+        <p class="fc-sub">From Barksdale AFB to Bauer</p>
+      </div>
+    </div>
+
+    <!-- Work history -->
+    <div id="panel-exp" class="panel">
+      <p class="panel-title">Work history</p>
+      <div class="ei">
+        <div class="ei-head"><span class="ei-role">Inventory specialist</span><span class="ei-dates">Sep 2015 &ndash; Mar 2026</span></div>
+        <p class="ei-co"><em>Sewell Cadillac of Houston</em> &middot; Houston, TX</p>
+        <ul class="bullets">
+          <li>Managed $1.2M&ndash;$1.5M inventory supporting ~$1M monthly department revenue</li>
+          <li>Maintained ~90% fill rate, ensuring supply chain continuity and customer satisfaction</li>
+          <li>Served as subject matter expert in engine systems, supporting technicians and operational workflows</li>
+          <li>Utilized Power BI and Excel to track inventory performance and drive decision-making</li>
+        </ul>
+      </div>
+      <div class="ei">
+        <div class="ei-head"><span class="ei-role">Services specialist &mdash; remote operations</span><span class="ei-dates">2015</span></div>
+        <p class="ei-co"><em>Baker Hughes</em> &middot; Houston, TX</p>
+        <ul class="bullets">
+          <li>Managed live data connectivity across hundreds of active production wells</li>
+          <li>Resolved technical disruptions impacting operational performance in real time</li>
+          <li>Coordinated with engineering teams to maintain system reliability</li>
+        </ul>
+      </div>
+      <div class="ei">
+        <div class="ei-head"><span class="ei-role">Laboratory technician</span><span class="ei-dates">2014 &ndash; 2015</span></div>
+        <p class="ei-co"><em>Stage 3 Separation</em> &middot; Houston, TX</p>
+        <ul class="bullets">
+          <li>Performed analysis supporting cost-saving fluid recycling initiatives</li>
+          <li>Delivered data insights that improved operational efficiency for oil &amp; gas clients</li>
+        </ul>
+      </div>
+      <div class="ei">
+        <div class="ei-head"><span class="ei-role">Electronic warfare technician</span><span class="ei-dates">1999 &ndash; 2002</span></div>
+        <p class="ei-co"><em>United States Air Force</em> &middot; Barksdale AFB, LA</p>
+        <ul class="bullets">
+          <li>Maintained mission-critical avionics and EW systems on B-52 aircraft</li>
+          <li>Operated with precision in high-pressure, zero-margin-for-error environments</li>
+          <li>Independently identified and implemented performance improvements</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Education -->
+    <div id="panel-edu" class="panel">
+      <p class="panel-title">Education</p>
+      <div class="ei">
+        <div class="ei-head"><span class="ei-role">Master of Business Administration</span><span class="ei-dates">Expected Dec 2026</span></div>
+        <p class="ei-co"><em>University of Houston</em> &middot; C. T. Bauer College of Business</p>
+        <ul class="bullets">
+          <li>Coursework: Data Analytics, Corporate Strategy, Financial Management</li>
+          <li>Tools: Power BI, DAX</li>
+        </ul>
+      </div>
+      <div class="ei">
+        <div class="ei-head"><span class="ei-role">B.S. Geology &mdash; Spatial Science &amp; Natural Resource Management</span><span class="ei-dates">Completed 2012</span></div>
+        <p class="ei-co"><em>Texas A&amp;M University</em> &middot; College Station, TX</p>
+        <ul class="bullets">
+          <li>First in the family to earn a four-year university degree</li>
+        </ul>
+      </div>
+      <div class="ei">
+        <div class="ei-head"><span class="ei-role">Electronic Warfare Technician Training</span><span class="ei-dates">1999 &ndash; 2001</span></div>
+        <p class="ei-co"><em>United States Air Force</em> &middot; Barksdale AFB</p>
+        <ul class="bullets">
+          <li>Military technical training in electronics and avionics systems</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Skills -->
+    <div id="panel-skills" class="panel">
+      <p class="panel-title">Skills &amp; tools</p>
+      <div class="skill-cloud">
+        <span class="skill">Power BI</span>
+        <span class="skill">DAX</span>
+        <span class="skill">Excel &amp; data modeling</span>
+        <span class="skill">Inventory management</span>
+        <span class="skill">Supply chain operations</span>
+        <span class="skill">Demand forecasting</span>
+        <span class="skill">Process improvement</span>
+        <span class="skill">Data analysis</span>
+        <span class="skill">Technical troubleshooting</span>
+        <span class="skill">Corporate strategy</span>
+        <span class="skill">Financial management</span>
+        <span class="skill">Team training &amp; mentoring</span>
+      </div>
+    </div>
+
+    <!-- Versions (inside panel) -->
+    <div id="panel-ver" class="panel">
+      <p class="panel-title">Version history</p>
+      <div class="vrow"><span class="vn">v5.0 &mdash; MBA</span><span class="vt">Bauer College of Business &mdash; leading at scale, opening doors for others</span><span class="vd">2024+</span></div>
+      <div class="vrow"><span class="vn">v4.0 &mdash; Ops</span><span class="vt">10 years of inventory &amp; supply chain mastery at Sewell Cadillac</span><span class="vd">2015</span></div>
+      <div class="vrow"><span class="vn">v3.0 &mdash; Energy</span><span class="vt">Baker Hughes &amp; Stage 3 &mdash; field data, lab science, remote ops</span><span class="vd">2014</span></div>
+      <div class="vrow"><span class="vn">v2.0 &mdash; Degree</span><span class="vt">Geology B.S. at Texas A&amp;M &mdash; first in the family to do it</span><span class="vd">2012</span></div>
+      <div class="vrow"><span class="vn">v1.0 &mdash; USAF</span><span class="vt">Electronic warfare technician &middot; B-52 avionics &middot; Barksdale AFB</span><span class="vd">1999</span></div>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <!-- ─── Timeline standalone ─── -->
+  <div id="timeline">
+    <p class="sec-label">Release notes</p>
+    <div class="history-box">
+      <div class="vrow"><span class="vn">v5.0 &mdash; MBA</span><span class="vt">Bauer College of Business &mdash; leading at scale, opening doors for others</span><span class="vd">2024+</span></div>
+      <div class="vrow"><span class="vn">v4.0 &mdash; Ops</span><span class="vt">10 years of inventory &amp; supply chain mastery at Sewell Cadillac</span><span class="vd">2015</span></div>
+      <div class="vrow"><span class="vn">v3.0 &mdash; Energy</span><span class="vt">Baker Hughes &amp; Stage 3 &mdash; field data, lab science, remote ops</span><span class="vd">2014</span></div>
+      <div class="vrow"><span class="vn">v2.0 &mdash; Degree</span><span class="vt">Geology B.S. at Texas A&amp;M &mdash; first in the family to do it</span><span class="vd">2012</span></div>
+      <div class="vrow"><span class="vn">v1.0 &mdash; USAF</span><span class="vt">Electronic warfare technician &middot; B-52 avionics &middot; Barksdale AFB</span><span class="vd">1999</span></div>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <!-- ─── Contact ─── -->
+  <div id="contact" class="contact">
+    <p class="sec-label">Get in touch</p>
+    <div class="contact-links">
+      <a href="mailto:crmedina@uh.edu">crmedina@uh.edu</a>
+      <a href="https://www.linkedin.com/in/carlos-medina-56a33b61" target="_blank" rel="noopener" class="btn-s">LinkedIn &rarr;</a>
+    </div>
+    <p class="contact-sub">Houston, TX &nbsp;&middot;&nbsp; (979) 595-6365</p>
+  </div>
+
+  <!-- ─── Footer ─── -->
+  <footer>
+    <div class="footer-div"></div>
+    <p class="footer-name">Carlos R. Medina</p>
+    <p class="footer-tag">
+      MBA Candidate &rsquo;26, C. T. Bauer College of Business<br>
+      Built as a product launch &mdash; because that&rsquo;s exactly what this is.
+    </p>
+  </footer>
+
+</main>
+
+<script>
+function toggle(card, key) {
+  var cards  = document.querySelectorAll('.fc');
+  var panels = document.querySelectorAll('.panel');
+  var panel  = document.getElementById('panel-' + key);
